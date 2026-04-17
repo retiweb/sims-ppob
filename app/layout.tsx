@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SIMS PPOB - Rian Eko Saputro",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({

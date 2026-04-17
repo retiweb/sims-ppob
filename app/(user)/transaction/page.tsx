@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { formatRupiah } from "@/lib/utils";
 import useTransaction from "./useTransaction";
+import { useEffect, useState } from "react";
 
 const TransactionPage = () => {
+  const [isMounted, setIsMounted] = useState(false)
   const {
     data,
     isLoading,
@@ -28,6 +30,18 @@ const TransactionPage = () => {
     }).format(new Date(isoString));
   };
 
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if(!isMounted){
+    return(
+      <div className="flex justify-center items-center">
+          <Spinner/>
+          Memuat....
+      </div>
+    )
+  }
   const allRecords = data?.pages.flatMap((page) => page.records) || [];
 
   return (
