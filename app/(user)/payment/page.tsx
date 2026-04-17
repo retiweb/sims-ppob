@@ -26,7 +26,7 @@ const PaymentPage = () => {
   const [showFailed, setShowFailed] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { handlePayment, isPendingPayment } = usePayment();
+  const { handlePayment, isPendingPayment, getBalance } = usePayment();
 
   
   useEffect(() => {
@@ -42,6 +42,7 @@ const PaymentPage = () => {
       onSuccess: () => {
         setShowConfirm(false);
         setShowSuccess(true);
+        getBalance()
       },
       onError: (error: any) => {
         setShowConfirm(false);
