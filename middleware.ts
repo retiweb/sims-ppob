@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
 
   // 1. Jika tidak ada token dan mencoba akses halaman terproteksi
   if (!token && !isAuthPage) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('/auth/login', request.url))
   }
 
   // 2. Jika sudah ada token dan mencoba akses halaman login/regis
