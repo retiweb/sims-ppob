@@ -92,8 +92,8 @@ const useLogin = () => {
           dispatch(setUser(payload));
         }
 
-        toast.success("Login Berhasil");
         router.push("/dashboard");
+        toast.success("Login Berhasil");
       } catch (error: any) {
         toast.error(error.message || "Terjadi kesalahan pada server");
       }
